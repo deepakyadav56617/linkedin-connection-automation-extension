@@ -1,0 +1,31 @@
+{
+    "manifest_version": 3,
+    "name": "LinkedIn Connect Automator",
+    "description": "Automatically send connection requests on LinkedIn search results page.",
+    "version": "1.0",
+    "permissions": [
+        "activeTab",
+        "storage",
+        "tabs",
+        "scripting"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.linkedin.com/search/results/people/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "host_permissions": [
+        "https://www.linkedin.com/*"
+    ]
+}
